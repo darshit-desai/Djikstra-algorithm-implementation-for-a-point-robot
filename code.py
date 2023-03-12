@@ -35,8 +35,8 @@ running = True
 
 
 
-start_node = (550,30)
-goal_node = (6,6)
+start_node = (6,6)
+goal_node = (90,20)
 Node_i = 0
 Parent_Node_i = -1
 initial_c2c = 0
@@ -97,6 +97,13 @@ while (Open_list.empty()==False):
 		break
 	Parent_Node_i=nodegen[1]
 	new_node_up, new_node_cost_up = gen_up(nodecoord, nodec2c)
+	if (new_node_up==goal_node):
+		Node_i+=1
+		gni = Node_i
+		Closed_list[Node_i]=[new_node_cost_up,Parent_Node_i,new_node_up]
+		print("Goal Reached after doing up operation")
+		goalreached=1
+		break
 	if (screen.get_at(new_node_up)!=(255, 0, 0, 255)):
 		if not(any(val[-1] == new_node_up for val in Closed_list.values())):
 			if new_node_up not in [tup[3] for tup in Open_list.queue]:
@@ -113,6 +120,13 @@ while (Open_list.empty()==False):
 					# print("*****I went inside and modified during up",Open_list.queue[index])
 	# print(Open_list)
 	new_node_down, new_node_cost_down = gen_down(nodecoord, nodec2c)
+	if (new_node_down==goal_node):
+		Node_i+=1
+		gni = Node_i
+		Closed_list[Node_i]=[new_node_cost_down,Parent_Node_i,new_node_down]
+		print("Goal Reached after doing down operation")
+		goalreached=1
+		break
 	if (screen.get_at(new_node_down)!=(255, 0, 0, 255)):
 		if not(any(val[-1] == new_node_down for val in Closed_list.values())):
 			if new_node_down not in [tup[3] for tup in Open_list.queue]:
@@ -128,6 +142,13 @@ while (Open_list.empty()==False):
 					# print("*****I went inside and modified during down",Open_list.queue[index])
 
 	new_node_left, new_node_cost_left = gen_left(nodecoord, nodec2c)
+	if (new_node_left==goal_node):
+		Node_i+=1
+		gni = Node_i
+		Closed_list[Node_i]=[new_node_cost_left,Parent_Node_i,new_node_left]
+		print("Goal Reached after doing left operation")
+		goalreached=1
+		break
 	if (screen.get_at(new_node_left)!=(255, 0, 0, 255)):
 		if not(any(val[-1] == new_node_left for val in Closed_list.values())):
 			if new_node_left not in [tup[3] for tup in Open_list.queue]:
@@ -143,6 +164,13 @@ while (Open_list.empty()==False):
 					# print("*****I went inside and modified during left",Open_list.queue[index])
 
 	new_node_right, new_node_cost_right = gen_right(nodecoord, nodec2c)
+	if (new_node_right==goal_node):
+		Node_i+=1
+		gni = Node_i
+		Closed_list[Node_i]=[new_node_cost_right,Parent_Node_i,new_node_right]
+		print("Goal Reached after doing right operation")
+		goalreached=1
+		break
 	if (screen.get_at(new_node_right)!=(255, 0, 0, 255)):
 		if not(any(val[-1] == new_node_right for val in Closed_list.values())):
 			if new_node_right not in [tup[3] for tup in Open_list.queue]:
@@ -158,6 +186,13 @@ while (Open_list.empty()==False):
 					# print("*****I went inside and modified during right",Open_list.queue[index])
 
 	new_node_up_left, new_node_cost_up_left = gen_up_left(nodecoord, nodec2c)
+	if (new_node_up_left==goal_node):
+		Node_i+=1
+		gni = Node_i
+		Closed_list[Node_i]=[new_node_cost_up_left,Parent_Node_i,new_node_up_left]
+		print("Goal Reached after doing up left operation")
+		goalreached=1
+		break
 	if (screen.get_at(new_node_up_left)!=(255, 0, 0, 255)):
 		if not(any(val[-1] == new_node_up_left for val in Closed_list.values())):
 			if new_node_up_left not in [tup[3] for tup in Open_list.queue]:
@@ -173,6 +208,13 @@ while (Open_list.empty()==False):
 					# print("*****I went inside and modified during up left",Open_list.queue[index])
 
 	new_node_up_right, new_node_cost_up_right = gen_up_right(nodecoord, nodec2c)
+	if (new_node_up_right==goal_node):
+		Node_i+=1
+		gni = Node_i
+		Closed_list[Node_i]=[new_node_cost_up_right,Parent_Node_i,new_node_up_right]
+		print("Goal Reached after doing up right operation")
+		goalreached=1
+		break
 	if (screen.get_at(new_node_up_right)!=(255, 0, 0, 255)):
 		if not(any(val[-1] == new_node_up_right for val in Closed_list.values())):
 			if new_node_up_right not in [tup[3] for tup in Open_list.queue]:
@@ -188,6 +230,13 @@ while (Open_list.empty()==False):
 					print("*****I went inside and modified during up right", Open_list.queue[index])
 
 	new_node_down_left, new_node_cost_down_left = gen_down_left(nodecoord, nodec2c)
+	if (new_node_down_left==goal_node):
+		Node_i+=1
+		gni = Node_i
+		Closed_list[Node_i]=[new_node_cost_down_left,Parent_Node_i,new_node_down_left]
+		print("Goal Reached after doing down left operation")
+		goalreached=1
+		break
 	if (screen.get_at(new_node_down_left)!=(255, 0, 0, 255)):
 		if not(any(val[-1] != new_node_down_left for val in Closed_list.values())):
 			if new_node_down_left not in [tup[3] for tup in Open_list.queue]:
@@ -203,6 +252,13 @@ while (Open_list.empty()==False):
 					print("*****I went inside and modified during down left", Open_list.queue[index])
 
 	new_node_down_right, new_node_cost_down_right = gen_down_right(nodecoord, nodec2c)
+	if (new_node_down_right==goal_node):
+		Node_i+=1
+		gni = Node_i
+		Closed_list[Node_i]=[new_node_cost_down_right,Parent_Node_i,new_node_down_right]
+		print("Goal Reached after doing down right operation")
+		goalreached=1
+		break
 	if (screen.get_at(new_node_down_right)!=(255, 0, 0, 255)):
 		if not(any(val[-1] == new_node_down_right for val in Closed_list.values())):
 			if new_node_down_right not in [tup[3] for tup in Open_list.queue]:
@@ -219,7 +275,7 @@ while (Open_list.empty()==False):
 	screen.set_at(nodecoord,(255,0,255))
 	pyg.display.update()
 	
-print(Closed_list)	
+# print(Closed_list)	
 path=[]
 # path.append(gnc)
 if (goalreached!=0):
