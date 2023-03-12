@@ -10,3 +10,7 @@ For running the code use python3 $PATH$/code.py in the linux or VSCode Terminal
 
 Here's a screenshot of the explored nodes (pink) and the path taken (black line) with the obstacle map (red):
 
+Start node (6,9)
+Goal node (69,96)
+
+![Screenshot from 2023-03-11 23-25-21](https://user-images.githubusercontent.com/36150235/224524313-4c375115-9ed1-42c0-9f7d-e89d6f75888b.png)
