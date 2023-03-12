@@ -45,7 +45,7 @@ index=None
 Open_list = PriorityQueue()
 Open_list.put(node_state)
 Closed_list = {}
-
+goalreached = 0
 
 def gen_up(node,nc2c):
 	nnode = (node[0]+0,node[1]-1)
@@ -91,6 +91,7 @@ while (Open_list.empty()==False):
 	# print("The whole Open list",Open_list)
 	if(nodecoord==goal_node):
 		print("Woohoo we reached the goal")
+		goalreached=1
 		gni=nodegen[1]
 		gnc=nodecoord
 		break
@@ -221,10 +222,12 @@ while (Open_list.empty()==False):
 print(Closed_list)	
 path=[]
 # path.append(gnc)
-while gni!=-1:
-	path.append(Closed_list[gni][-1])
-	gni=Closed_list[gni][1]
-	print(1)
+if (goalreached!=0):
+	while gni!=-1:
+		path.append(Closed_list[gni][-1])
+		gni=Closed_list[gni][1]
+else:
+	print("Goal not reached")
 path.reverse()
 print(path)
 # for valu in Closed_list.values():
