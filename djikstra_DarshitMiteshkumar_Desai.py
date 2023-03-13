@@ -38,7 +38,7 @@ while True:
 	goal_y = int(input("Please enter the y coordinate of goal:"))
 	start_y = 250-(start_y)
 	goal_y = 250-(goal_y)
-	if (screen.get_at((goal_x,goal_y))!=(255,0,0,255) and screen.get_at((start_x,start_y))!=(255,0,0,255)): 
+	if (screen.get_at((goal_x,goal_y))!=(255,0,0,255) and screen.get_at((start_x,start_y))!=(255,0,0,255) and (start_x<600 or start_x>0) and (start_y>0 or start_y<250)and(goal_x<600 or goal_x>0) and (goal_y>0 or goal_y<250)): 
 		print("Valid coordinates received")
 		break
 	else:
@@ -314,6 +314,7 @@ pyg.display.update()
 for valu in Closed_list.values():
 	s1.set_at(valu[-1],(255,0,255))
 	pyg.display.update()	
+
 if goalreached != 0:
 	for co in path:
 		s1.set_at(co,(0,0,0))
