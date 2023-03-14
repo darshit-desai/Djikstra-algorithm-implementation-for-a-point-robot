@@ -17,8 +17,8 @@ Goal node (69,96)
 
 ## Animation of the node exploration (pink) and the path taken (black line) with the obstacle map (red):
 
-Start node (45,185)
-Goal node (199,24)
+Start node (45,65)
+Goal node (199,226)
 
 
 
