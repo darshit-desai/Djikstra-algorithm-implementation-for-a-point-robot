@@ -114,7 +114,7 @@ while (Open_list.empty()==False):
 	Closed_list[nodegen[1]]=[nodec2c,nodegen[2],nodecoord]
 	Closedir[nodecoord]=None
 
-	# del Opendir[nodecoord]
+	del Opendir[nodecoord]
 	# print("Latest generated node:",nodegen)
 	#Check whether we found the goal node or not
 	if(nodecoord==goal_node):
@@ -137,12 +137,12 @@ while (Open_list.empty()==False):
 		break
 	if (screen.get_at(new_node_up)!=(255, 0, 0, 255)):
 		if new_node_up not in Closedir: #Check if in closed list
-			if new_node_up not in global_dict:	#Check if in open list
+			if new_node_up not in Opendir:	#Check if in open list
 				Node_i+=1
 				global_dict[new_node_up]=[new_node_cost_up, Node_i, Parent_Node_i, new_node_up]
 				# temp_state = [new_node_cost_up, Node_i, Parent_Node_i, new_node_up]
 				Open_list.put(global_dict[new_node_up])
-				# Opendir[new_node_up]=None
+				Opendir[new_node_up]=None
 			else:
 				# index = next(i for i, (_, _, _, (x, y)) in enumerate(Open_list.queue) if (x, y) == new_node_up)
 				# if (round(new_node_cost_up,1)<round(Open_list.queue[index][0],1)): #if in open list update cost
@@ -163,12 +163,12 @@ while (Open_list.empty()==False):
 		break
 	if (screen.get_at(new_node_down)!=(255, 0, 0, 255)):
 		if new_node_down not in Closedir:
-			if new_node_down not in global_dict:
+			if new_node_down not in Opendir:
 				Node_i+=1
 				# temp_state = [new_node_cost_down, Node_i, Parent_Node_i, new_node_down]
 				global_dict[new_node_down]=[new_node_cost_down, Node_i, Parent_Node_i, new_node_down]
 				Open_list.put(global_dict[new_node_down])
-				# Opendir[new_node_down]=None
+				Opendir[new_node_down]=None
 			else:
 				# index = next(i for i, (_, _, _, (x, y)) in enumerate(Open_list.queue) if (x, y) == new_node_down)
 				# if (round(new_node_cost_down,1)<round(Open_list.queue[index][0],1)):
@@ -189,12 +189,12 @@ while (Open_list.empty()==False):
 		break
 	if (screen.get_at(new_node_left)!=(255, 0, 0, 255)):
 		if new_node_left not in Closedir:
-			if new_node_left not in global_dict:
+			if new_node_left not in Opendir:
 				Node_i+=1
 				# temp_state = [new_node_cost_left, Node_i, Parent_Node_i, new_node_left]
 				global_dict[new_node_left]=[new_node_cost_left, Node_i, Parent_Node_i, new_node_left]
 				Open_list.put(global_dict[new_node_left])
-				# Opendir[new_node_down]=None
+				Opendir[new_node_left]=None
 			else:
 				# index = next(i for i, (_, _, _, (x, y)) in enumerate(Open_list.queue) if (x, y) == new_node_left)
 				# if (round(new_node_cost_left,1)<round(Open_list.queue[index][0],1)):
@@ -216,12 +216,12 @@ while (Open_list.empty()==False):
 		break
 	if (screen.get_at(new_node_right)!=(255, 0, 0, 255)):
 		if new_node_right not in Closedir:
-			if new_node_right not in global_dict:
+			if new_node_right not in Opendir:
 				Node_i+=1
 				# temp_state = [new_node_cost_right, Node_i, Parent_Node_i, new_node_right]
 				global_dict[new_node_right]=[new_node_cost_right, Node_i, Parent_Node_i, new_node_right]
 				Open_list.put(global_dict[new_node_right])
-				# Opendir[new_node_right]=None
+				Opendir[new_node_right]=None
 			else:
 				# index = next(i for i, (_, _, _, (x, y)) in enumerate(Open_list.queue) if (x, y) == new_node_right)
 				# if (round(new_node_cost_right,1)<round(Open_list.queue[index][0],1)):
@@ -242,12 +242,12 @@ while (Open_list.empty()==False):
 		break
 	if (screen.get_at(new_node_up_left)!=(255, 0, 0, 255)):
 		if new_node_up_left not in Closedir:
-			if new_node_up_left not in global_dict:
+			if new_node_up_left not in Opendir:
 				Node_i+=1
 				# temp_state = [new_node_cost_up_left, Node_i, Parent_Node_i, new_node_up_left]
 				global_dict[new_node_up_left]=[new_node_cost_up_left, Node_i, Parent_Node_i, new_node_up_left]
 				Open_list.put(global_dict[new_node_up_left])
-				# Opendir[new_node_up_left] =None
+				Opendir[new_node_up_left] =None
 			else:
 				# index = next(i for i, (_, _, _, (x, y)) in enumerate(Open_list.queue) if (x, y) == new_node_up_left)
 				# if (round(new_node_cost_up_left,1)<round(Open_list.queue[index][0],1)):
@@ -268,12 +268,12 @@ while (Open_list.empty()==False):
 		break
 	if (screen.get_at(new_node_up_right)!=(255, 0, 0, 255)):
 		if new_node_up_right not in Closedir:
-			if new_node_up_right not in global_dict:
+			if new_node_up_right not in Opendir:
 				Node_i+=1
 				# temp_state = [new_node_cost_up_right, Node_i, Parent_Node_i, new_node_up_right]
 				global_dict[new_node_up_right]=[new_node_cost_up_right, Node_i, Parent_Node_i, new_node_up_right]
 				Open_list.put(global_dict[new_node_up_right])
-				# Opendir[new_node_up_right] =None
+				Opendir[new_node_up_right] =None
 			else:
 				# index = next(i for i, (_, _, _, (x, y)) in enumerate(Open_list.queue) if (x, y) == new_node_up_right)
 				# if (round(new_node_cost_up_right,1)<round(Open_list.queue[index][0],1)):
@@ -294,11 +294,11 @@ while (Open_list.empty()==False):
 		break
 	if (screen.get_at(new_node_down_left)!=(255, 0, 0, 255)):
 		if new_node_down_left not in Closedir:
-			if new_node_down_left not in global_dict:
+			if new_node_down_left not in Opendir:
 				Node_i+=1
 				global_dict[new_node_down_left]=[new_node_cost_down_left, Node_i, Parent_Node_i, new_node_down_left]
 				Open_list.put(global_dict[new_node_down_left])
-				# Opendir[new_node_down_left] =None
+				Opendir[new_node_down_left] =None
 			else:
 				# index = next(i for i, (_, _, _, (x, y)) in enumerate(Open_list.queue) if (x, y) == new_node_down_left)
 				# if (round(new_node_cost_down_left,1)<round(Open_list.queue[index][0],1)):
@@ -319,11 +319,11 @@ while (Open_list.empty()==False):
 		break
 	if (screen.get_at(new_node_down_right)!=(255, 0, 0, 255)):
 		if new_node_down_right not in Closedir:
-			if new_node_down_right not in global_dict:
+			if new_node_down_right not in Opendir:
 				Node_i+=1
 				global_dict[new_node_down_right]=[new_node_cost_down_right, Node_i, Parent_Node_i, new_node_down_right]
 				Open_list.put(global_dict[new_node_down_right])
-				# Opendir[new_node_down_right] =None
+				Opendir[new_node_down_right] =None
 			else:
 				# index = next(i for i, (_, _, _, (x, y)) in enumerate(Open_list.queue) if (x, y) == new_node_down_right)
 				# if (round(new_node_cost_down_right,1)<round(Open_list.queue[index][0],1)):
@@ -337,7 +337,6 @@ while (Open_list.empty()==False):
 
 #Path Backtracking
 path=[]
-
 if (goalreached!=0):
 	while gni!=-1:
 		path.append(Closed_list[gni][-1])
@@ -346,6 +345,7 @@ else:
 	print("Goal not reached")
 path.reverse()
 # print(path)
+
 end_time = time.time()	#Algorithm end time
 total_time = end_time - start_time
 print(f"Total runtime: {total_time:.2f} seconds") #Final runtime
